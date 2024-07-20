@@ -62,7 +62,7 @@ A tabela `users` do banco de dados contém as seguintes colunas:
 
 ## Gerenciador de Banco de Dados
 
-Recomendamos utilizar o SQLite Studio ou o DB Browser for SQLite para visualizar e editar o banco de dados.
+Recomendo utilizar o SQLite Studio ou o DB Browser for SQLite para visualizar e editar o banco de dados.
 
 ## Licença
 

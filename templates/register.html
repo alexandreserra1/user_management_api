@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Register</h1>
+    <form action="/register" method="post" class="form" id="register-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required /><br />
+        <label for="lastname">Lastname:</label>
+        <input type="text" id="lastname" name="lastname" required /><br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required /><br />
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required /><br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required /><br />
+        <input type="submit" value="Register" class="button">
+    </form>
+    {% if error %}
+    <p class="error-message">{{ error }}</p>
+    {% endif %}
+    <button class="button" onclick="location.href='/login'">Login</button>
+    <script>
+        const form = document.getElementById("register-form");
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            try {
+                const response = await fetch("/api/users", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, password }),
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.message === "User created successfully") {
+                        window.location.href = "/login";
+                    } else {
+                        document.getElementById("error-message").innerHTML = data.message;
+                    }
+                } else {
+                    document.getElementById("error-message").innerHTML = "Erro desconhecido";
+                }
+            } catch (error) {
+                document.getElementById("error-message").innerHTML = "Erro desconhecido";
+            }
+        });
+    </script>
+</body>
+</html>

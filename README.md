@@ -9,7 +9,7 @@ Esta API permite a criação, listagem e login de usuários utilizando Python e 
 1. Clone o repositório:
 
     ```bash
-    git clone <URL_DO_REPOSITORIO>
+    git clone <https://github.com/alexandreserra1/user_management_api/edit/main/README.md>
     cd user_management_api
     ```
 

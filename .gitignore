@@ -171,3 +171,21 @@ poetry.toml
 # LSP config files
 pyrightconfig.json
 
+# Ignorar o ambiente virtual
+venv/
+.env
+.venv
+
+# Ignorar cache compilado do Python
+__pycache__/
+*.py[cod]
+
+# Ignorar banco de dados SQLite
+database.db
+
+# Outros ignorados comuns
+*.log
+*.sqlite3
+*.sqlite3-journal
+*.DS_Store
+
